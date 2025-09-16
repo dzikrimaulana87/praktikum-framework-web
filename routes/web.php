@@ -32,4 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/rahasia', function(){
+    return 'Ini path rahasia';
+})->middleware(['auth','RoleCheck:admin']);
+
 require __DIR__ . '/auth.php';
